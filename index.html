@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<p class="t-0" id="demo"></p>
+<section class="rain"></section>
+<div id="captain_img">
+	<img src="./STUFF.jpg">
+</div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <img src="./STUFF.jpg">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+var countDownDate = new Date().getTime();
+
+
+
+	// number of drops created.
+var nbDrop = 45; 
+
+// function to generate a random number range.
+function randRange( minNum, maxNum) {
+  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// function to generate drops
+function createRain(nbDrop) {
+
+	for( i=1;i<nbDrop;i++) {
+	var dropLeft = randRange(0,1600);
+	var dropTop = randRange(-1000,1400);
+
+	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+	$('#drop'+i).css('left',dropLeft);
+	$('#drop'+i).css('top',dropTop);
+	}
+
+}
+// Make it rain
+
+
+$(document).ready(function(){
+
+	// Update the count down every 1 second
+	var x = setInterval(function() {
+
+	  // Get todays date and time
+	  var now = new Date().getTime();
+
+	  // Find the distance between now and the count down date
+	  var distance = countDownDate + 5000 - now;
+
+	  // Time calculations for days, hours, minutes and seconds
+	  // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	  // Display the result in the element with id="demo"
+	  document.getElementById("demo").innerHTML = seconds + "s ";
+
+	  // If the count down is finished, write some text 
+	  if (distance < 0) {
+	    clearInterval(x);
+	    document.getElementById("demo").style.display = "none";
+	  }
+	});
+
+	setTimeout(function(){ 
+   	createRain(45)
+   	   setTimeout(function(){ 
+	   	// alert("Hello"); 
+	   	// $('#myModal').modal('show')
+	   	document.getElementById("captain_img").style.display = "block";
+	   	createRain(0)
+	   }, 3500);
+   }, 2000);
+
+});
+
+</script>
+</html>

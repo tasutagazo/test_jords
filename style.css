@@ -1,0 +1,54 @@
+html{height:100%;}
+body {
+background:#0D343A;
+/*background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(#000000));*/
+/*background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(0,0,0,1) 100%);*/
+
+overflow:hidden;
+}
+.t-0 {
+   top: 35%;
+    /* left: 50%; */
+    font-size: 5em;
+    z-index: 100;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#demo {
+  background: white;
+  position: absolute;
+}
+.modal-content {
+  background: transparent;
+  border: none;
+}
+#captain_img {
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 50%;
+}
+.drop {
+  background: url('test.svg');
+  background-size: cover;
+  background-position: center;
+  width:150px;
+  height:150px;
+  position: absolute;
+  /*background: red;*/
+  bottom:200px;
+  -webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;  
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+  to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+  to {margin-top:900px;}
+}
+
